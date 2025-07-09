@@ -2,4 +2,12 @@ main {
   background: cadetblue;
   height: 90vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-tabela {
+  background: yellow;
+  border: 1px solid #000;
 }

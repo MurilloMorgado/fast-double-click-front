@@ -1,6 +1,27 @@
 <app-header></app-header>
 <main>
   <section class="section-tabela">
+    <div class="tabela">
+      <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="code" style="width:20%">
+              Tempo <p-sortIcon field="code" />
+            </th>
+            <th pSortableColumn="name" style="width:20%">
+              Data <p-sortIcon field="name" />
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
   </section>
 </main>
 <app-footer></app-footer>
