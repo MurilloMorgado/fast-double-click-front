@@ -7,5 +7,58 @@ main {
   align-items: center;
 }
 
-.section-tabela {
+.section-tabela {}
+
+.filtro {
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+}
+
+::ng-deep .p-button {
+  padding: 10px;
+  margin: 0px 5px;
+}
+
+::ng-deep .p-calendar {
+  height: 40px;
+  width: 210px;
+}
+
+/* Responsividade: garantir que a tabela fique adaptada em telas pequenas */
+@media (max-width: 768px) {
+  .section-tabela {
+    width: 100%;
+    overflow-x: auto;
+    margin: 15px;
+  }
+
+  .p-table {
+    font-size: 14px;
+    /* Tamanho de fonte menor para telas pequenas */
+  }
+
+  /* Ajustar o estilo das células da tabela */
+  .p-table th,
+  .p-table td {
+    white-space: nowrap;
+  }
+
+  .p-table thead th {
+    font-size: 16px;
+  }
+
+  .p-table tbody td {
+    font-size: 14px;
+  }
+
+  ::ng-deep .p-button {
+    padding: 10px;
+    margin: 0px 5px;
+  }
+
+  ::ng-deep .p-calendar {
+    height: 40px;
+    width: 210px;
+  }
 }

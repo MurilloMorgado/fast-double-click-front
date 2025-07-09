@@ -1,17 +1,19 @@
 <app-header></app-header>
 <main>
   <section class="section-tabela">
-    <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" dateFormat="yy-mm-dd"
-      placeholder="Selecione o intervalo de datas">
-    </p-calendar>
-    <p-button (click)="filtrarPorData()">Filtrar</p-button>
-    <p-button label="Limpar Filtro" (click)="limparFiltro()" class="p-button-secondary"></p-button>
+    <div class="filtro">
+      <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" dateFormat="yy-mm-dd"
+        placeholder="Selecione o intervalo de datas">
+      </p-calendar>
+      <p-button label="Filtrar" (click)="filtrarPorData()"></p-button>
+      <p-button label="Limpar" (click)="limparFiltro()" class="p-button-secondary"></p-button>
+    </div>
 
 
 
     <div class="tabela">
-      <p-table [value]="registrotempoFiltrado" [paginator]="true" [rows]="5" [tableStyle]="{'min-width': '60rem'}"
-        [rowsPerPageOptions]="[5, 10, 20]">
+      <p-table [value]="registrotempoFiltrado" [paginator]="true" [rows]="5" [tableStyle]="{'min-width': '20rem'}"
+        [rowsPerPageOptions]="[5, 10]">
         <ng-template pTemplate="header">
           <tr>
             <th pSortableColumn="tempo" style="width:20%">
