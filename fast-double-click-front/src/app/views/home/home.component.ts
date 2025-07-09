@@ -6,7 +6,6 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { ButtonModule } from 'primeng/button';
 import { RegistroTempo } from '../../model/regostroTempo';
 import { CronometroService } from '../../service/cronometroService.service';
-import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MenubarModule, HeaderComponent, FooterComponent, ButtonModule, HttpClientModule],
+  imports: [MenubarModule, HeaderComponent, FooterComponent, ButtonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -51,6 +50,7 @@ export class HomeComponent implements OnInit {
       let tempoPausado = this.formatTime(this.pausedTime);
       console.log('Cronômetro pausado em:', tempoPausado);
       this.salvarTempo(tempoPausado);
+      this.ngOnDestroy();
 
 
     }
@@ -63,16 +63,15 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    clearInterval(this.timer);
+    this.elapsedTime = 0;
   }
 
   salvarTempo(tempoPausado: string): void {
     const registro: RegistroTempo = {
-      tempo: tempoPausado, // ou elapsedTime, se o backend espera um número
-      data: new Date().toISOString()
-      // adicione outros campos se o seu backend precisar
+      tempo: tempoPausado,
+      data: new Date().toISOString().split('T')[0]
     };
-
+    console.log(registro);
     this.cronometroService.salvarTempo(registro).subscribe({
       next: () => console.log('Tempo enviado com sucesso ao backend!'),
       error: err => console.error('Erro ao salvar tempo:', err)
