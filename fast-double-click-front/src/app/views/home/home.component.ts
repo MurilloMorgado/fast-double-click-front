@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
+import { HeaderComponent } from "../../components/header/header.component";
+import { FooterComponent } from "../../components/footer/footer.component";
+import { ButtonModule } from 'primeng/button';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MenubarModule],
+  imports: [MenubarModule, HeaderComponent, FooterComponent,ButtonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
