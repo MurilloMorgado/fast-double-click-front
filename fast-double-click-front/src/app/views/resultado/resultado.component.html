@@ -2,7 +2,8 @@
 <main>
   <section class="section-tabela">
     <div class="tabela">
-      <p-table [value]="registrotempo" [tableStyle]="{'min-width': '60rem'}">
+
+      <p-table [value]="registrotempo" [paginator]="true" [rows]="5" [tableStyle]="{'min-width': '60rem'}" [rowsPerPageOptions]="[5, 10, 20]">
         <ng-template pTemplate="header">
           <tr>
             <th pSortableColumn="tempo" style="width:20%">
