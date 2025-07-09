@@ -4,11 +4,8 @@ import { MenuItem } from 'primeng/api';
 import { HeaderComponent } from "../../components/header/header.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { ButtonModule } from 'primeng/button';
-import { RegistroTempo } from '../../model/regostroTempo';
+import { RegistroTempo } from '../../model/registroTempo';
 import { CronometroService } from '../../service/cronometroService.service';
-
-
-
 
 @Component({
   selector: 'app-home',

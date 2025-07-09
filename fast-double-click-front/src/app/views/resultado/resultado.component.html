@@ -2,21 +2,21 @@
 <main>
   <section class="section-tabela">
     <div class="tabela">
-      <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+      <p-table [value]="registrotempo" [tableStyle]="{'min-width': '60rem'}">
         <ng-template pTemplate="header">
           <tr>
-            <th pSortableColumn="code" style="width:20%">
-              Tempo <p-sortIcon field="code" />
+            <th pSortableColumn="tempo" style="width:20%">
+              Tempo <p-sortIcon field="tempo" />
             </th>
-            <th pSortableColumn="name" style="width:20%">
-              Data <p-sortIcon field="name" />
+            <th pSortableColumn="data" style="width:20%">
+              Data <p-sortIcon field="data" />
             </th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
+        <ng-template pTemplate="body" let-registro>
           <tr>
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
+            <td>{{ registro.tempo }}</td>
+            <td>{{ registro.data }}</td>
 
           </tr>
         </ng-template>

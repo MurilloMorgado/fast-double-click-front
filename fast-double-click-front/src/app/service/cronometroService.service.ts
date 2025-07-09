@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { RegistroTempo } from "../model/regostroTempo";
+import { RegistroTempo } from "../model/registroTempo";
 import { Observable } from "rxjs/internal/Observable";
 
 
