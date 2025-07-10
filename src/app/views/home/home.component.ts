@@ -6,13 +6,16 @@ import { FooterComponent } from "../../components/footer/footer.component";
 import { ButtonModule } from 'primeng/button';
 import { RegistroTempo } from '../../model/registroTempo';
 import { CronometroService } from '../../service/cronometroService.service';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MenubarModule, HeaderComponent, FooterComponent, ButtonModule],
+  imports: [MenubarModule, HeaderComponent, FooterComponent, ButtonModule, ToastModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [MessageService]
 })
 export class HomeComponent implements OnInit {
 
@@ -22,7 +25,10 @@ export class HomeComponent implements OnInit {
   elapsedTime: number = 0;
   items: MenuItem[] | undefined;
 
-  constructor(private cronometroService: CronometroService) {}
+  constructor(
+    private cronometroService: CronometroService,
+    private messageService: MessageService
+  ) {}
 
 
   ngOnInit(): void {
@@ -70,8 +76,14 @@ export class HomeComponent implements OnInit {
     };
     console.log(registro);
     this.cronometroService.salvarTempo(registro).subscribe({
-      next: () => console.log('Tempo enviado com sucesso ao backend!'),
-      error: err => console.error('Erro ao salvar tempo:', err)
+      next: () => {
+        console.log('Tempo enviado com sucesso ao backend!');
+        this.messageService.add({severity: 'success', summary: 'Sucesso', detail: 'Tempo salvo com sucesso!'});
+      },
+      error: err => {
+        console.error('Erro ao salvar tempo:', err);
+        this.messageService.add({severity: 'error', summary: 'Erro', detail: 'Falha ao salvar tempo!'});
+      }
     });
   }
 
