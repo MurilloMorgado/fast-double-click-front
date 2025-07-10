@@ -1,27 +1,34 @@
 # FastDoubleClickFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 17.3.17.
 
-## Development server
+## Servidor de Desenvolvimento
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Execute  `ng serve` para iniciar o servidor de desenvolvimento. Acesse `http://localhost:4200/`. A aplicação será recarregada automaticamente se você alterar qualquer um dos arquivos de origem.
 
-## Code scaffolding
+## Requisitos para Testes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Além de rodar o frontend, é necessário ter o back-end em funcionamento. O código do back-end está disponível neste repositório: https://github.com/MurilloMorgado/fast-double-click . Certifique-se de que o back-end esteja rodando para realizar os testes completos.
 
-## Build
+## Descrição do Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+O FastDoubleClickFront é uma aplicação web que permite ao usuário iniciar um cronômetro e, ao pausá-lo, enviar o tempo gerado juntamente com a data atual para o back-end. O back-end, por sua vez, salva essas informações em um arquivo .json e as disponibiliza para visualização na tela de resultados.
 
-## Running unit tests
+## Funcionalidades Implementadas
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Iniciar e Pausar Cronômetro: O usuário pode iniciar e pausar o cronômetro.
 
-## Running end-to-end tests
+Salvar Tempo: Ao pausar, o tempo é enviado para o back-end e armazenado em um arquivo .json.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Exibir Resultados: Os tempos salvos podem ser visualizados na tela de resultados.
 
-## Further help
+## Back-end
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+O projeto inclui dois controladores no back-end:
+
+Controller para salvar o tempo: Responsável por gravar os tempos no arquivo .json.
+
+Controller para listar os tempos salvos: Permite que os tempos salvos sejam recuperados e exibidos na interface do usuário.
+
+## Considerações Técnicas
+Embora o projeto tenha a capacidade de utilizar um banco de dados H2, o desafio focou em salvar as informações diretamente em um arquivo .json dentro do próprio projeto. Por isso, o banco de dados H2 não foi utilizado.
