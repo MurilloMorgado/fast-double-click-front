@@ -2,7 +2,7 @@
 <main>
   <section class="section-botao">
     <p-toast />
-    <p-button [label]="isRunning ? 'Pausar' : 'Iniciar'" (onClick)="toggleTimer()"></p-button>
+    <p-button class="botao" [label]="isRunning ? 'Pausar cronômetro ' : 'Iniciar cronômetro '" (onClick)="toggleTimer()"></p-button>
   </section>
 </main>
 <app-footer></app-footer>
